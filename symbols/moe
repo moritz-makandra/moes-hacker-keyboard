@@ -1,0 +1,25 @@
+// use some keys from NEO 2.0 on the third level
+default partial alphanumeric_keys modifier_keys
+xkb_symbols "moe_keyboard_symbols" {
+
+	include "de(nodeadkeys)"
+	include "shift(both_capslock)" // press both shift keys for caps lock
+	include "level3(caps_switch)"  // Caps_Lock as level3 modifier key
+
+
+	key <AC01>	{ [ a,	A,	backslash,	lessthanequal	] };
+	key <AC02>	{ [ s,	S,	slash,		NoSymbol	] };
+
+
+	key <AC03>	{ [ d,	D,	braceleft,	ETH		] };
+	key <AC04>	{ [ f,	F,	braceright,	ordfeminine	] };
+	key <AC07>	{ [ j,	J,	parenleft,	NoSymbol	] };
+	key <AC08>	{ [ k,	K,	parenright,	NoSymbol	] };
+
+	key <AD02>	{ [ w,	W,	underscore,	NoSymbol	] };
+	key <AD03>	{ [ e,	E,	bracketleft,	EuroSign	] };
+	key <AD04>	{ [ r,	R,	bracketright,	paragraph	] };
+
+	key <AD07>	{ [ u,	U,	less,		NoSymbol	] };
+	key <AD08>	{ [ i,	I,	greater,	NoSymbol	] };
+};

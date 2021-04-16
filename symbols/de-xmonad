@@ -1,0 +1,24 @@
+partial alphanumeric_keys
+xkb_symbols "de-xmonad" {
+    name[Group1]= "US-Layout (with DE optimisations)";
+
+    include "pc(pc105)"
+    include "us(intl)"
+    include "inet(evdev)"
+
+    key <TLDE> { [ grave, asciitilde, dead_grave, dead_tilde ] };
+    key <AE06> { [ 6, asciicircum, onequarter, dead_circumflex ] };
+    key <AD01>	{ [ q, Q, at, dead_acute ] };
+    key <AD03>	{ [ e, E, EuroSign, cent ] };
+    key <AE11> { [ minus, underscore, ssharp, dead_belowdot ] };
+    key <AD11> { [ bracketleft,  braceleft,  udiaeresis, Udiaeresis ] };
+    key <AD12> { [ bracketright, braceright, dead_diaeresis, degree ] };
+    key <AC05> { [ g, G, dead_greek ] };
+    key <AC10> { [ semicolon, colon, odiaeresis, Odiaeresis ]	};
+    key <AC11> { [ apostrophe, quotedbl, adiaeresis, Adiaeresis ] };
+    key <AB07> { [ m, M, mu, dead_greek ] };
+
+    include "level3(ralt_switch)"
+    include "capslock(swapescape)"
+    include "compose(102)"
+};

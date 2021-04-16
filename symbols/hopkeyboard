@@ -1,0 +1,68 @@
+//
+// Custom changes to a keyboard layout. 
+// github.com/bubersson/init
+//
+// For full installation see README.md.
+// In short: 
+//  - move this file under /usr/share/X11/xkb/symbols or make a link.
+//  - reference in /usr/share/X11/xkb/rule/evdev.xml
+
+default partial alphanumeric_keys modifier_keys
+xkb_symbols "hop_keyboard_symbols" {
+    name[Group1]= "English (US - with Mac friendly touches)";
+
+    // Default "pc105" keyboard, English (US) keyboard, Evdev Standardized Keycodes.
+    include "pc+us+inet(evdev)"
+    // Alt+shift chooses the next keyboard group. Not sure if needed. 
+    include "group(alt_shift_toggle)"
+    // Caps lock acts as escape.
+    include "capslock(escape)"
+    // Swap left alt and left ctrl.
+    include "ctrl(swap_lalt_lctl)"
+    // Swap right alt and right ctrl (my edit).
+    include "hopkeyboard(swap_ralt_rctl)"
+
+    // Make (new) alt+backspace behave like Delete.
+    override key <BKSP> {
+        type= "PC_ALT_LEVEL2",
+        symbols[Group1]=  [ BackSpace, NoSymbol ],
+        actions[Group1] = [ NoAction(), RedirectKey(key=<DELE>,clearMods=Mod1) ]
+    };
+    
+    // Make (new) ctrl+left go all the way to the beginning of the line (like Home). 
+    override key <LEFT> {
+        type="PC_CONTROL_LEVEL2",
+        symbols[Group1] = [ Left, NoSymbol ],
+        actions[Group1] = [ NoAction(), RedirectKey(key=<HOME>, clearMods=Control) ]
+    };
+
+    // Make (new) ctrl+right go all the way to the end of the line (like End). 
+     override key <RGHT> {
+        type="PC_CONTROL_LEVEL2",        
+        symbols[Group1]= [ Right, NoSymbol ],
+        actions[Group1] = [ NoAction(), RedirectKey(key=<END>, clearMods=Control) ]
+    };
+
+    // Make (new) ctrl+up do PgUp. 
+    override key <UP> {
+        type="PC_CONTROL_LEVEL2",        
+        symbols[Group1]= [ Up, NoSymbol ],
+        actions[Group1] = [ NoAction(), RedirectKey(key=<PGUP>, clearMods=Control) ]
+    };
+
+    // Make (new) ctrl+down do PgDown. 
+    override key <DOWN> {
+        type="PC_CONTROL_LEVEL2",        
+        symbols[Group1]= [ Down, NoSymbol ],
+        actions[Group1] = [ NoAction(), RedirectKey(key=<PGDN>, clearMods=Control) ]
+    };
+};
+
+// Swap the functions of the left Alt key and the left Ctrl key.
+partial modifier_keys
+xkb_symbols "swap_ralt_rctl" {
+    replace key <RALT> { [ Control_R, Control_R ] };
+    replace key <RCTL> { [ Alt_R, Meta_R ] };
+    modifier_map Mod1    { <RCTL> };
+    modifier_map Control { <RALT> };
+};
