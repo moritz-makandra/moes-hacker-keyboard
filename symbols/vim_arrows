@@ -1,0 +1,14 @@
+// http://domwatson.codes/2014/11/who-needs-capslock-anyway-part-2.html
+
+default partial alphanumeric_keys
+xkb_symbols "vim_arrows" {
+        key <AC06>      { symbols[group2]= [ left, left ] };
+        key <AC07>  { symbols[Group2]=[ Left,      Left,      Left,      Left      ] };
+        key <AC08>  { symbols[Group2]=[ Down,      Down,      Down,      Down      ] };
+        key <AC09>  { symbols[Group2]=[ Right,     Right,     Right,     Right     ] };
+        key <AD08>  { symbols[Group2]=[ Up,        Up,        Up,        Up        ] };
+        key <AD07>  { symbols[Group2]=[ Home,      Home,      Home,      Home      ] };
+        key <AD09>  { symbols[Group2]=[ End,       End,       End,       End       ] };
+        key <AD10>  { symbols[Group2]=[ Delete,    Delete,    Delete,    Delete    ] };
+        key <AD06>  { symbols[Group2]=[ BackSpace, BackSpace, BackSpace, BackSpace ] };
+};
