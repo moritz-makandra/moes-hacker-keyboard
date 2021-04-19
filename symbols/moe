@@ -1,15 +1,13 @@
 // use some keys from NEO 2.0 on the third level
 default partial alphanumeric_keys modifier_keys
-xkb_symbols "moe_keyboard_symbols" {
+xkb_symbols "de" {
 
 	include "de(nodeadkeys)"
 	include "shift(both_capslock)" // press both shift keys for caps lock
 	include "level3(caps_switch)"  // Caps_Lock as level3 modifier key
 
-
 	key <AC01>	{ [ a,	A,	backslash,	lessthanequal	] };
 	key <AC02>	{ [ s,	S,	slash,		NoSymbol	] };
-
 
 	key <AC03>	{ [ d,	D,	braceleft,	ETH		] };
 	key <AC04>	{ [ f,	F,	braceright,	ordfeminine	] };
